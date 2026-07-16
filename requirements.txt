@@ -1,0 +1,9 @@
+torch>=2.5.1
+gymnasium>=0.29
+gymnasium[classic-control]
+gymnasium[box2d]
+numpy>=1.26
+matplotlib>=3.8
+tqdm>=4.66
+tensorboard>=2.15
+wandb==0.17.9

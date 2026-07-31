@@ -30,6 +30,10 @@ class Agent:
 
     def select_action(self,state):
 
+        if not isinstance(state,torch.Tensor):
+
+            state = torch.tensor(state,device = self.device)
+
         if state.dim == 1:
 
             state.unsqueeze(0)
@@ -69,7 +73,7 @@ class Agent:
 
         return torch.argmax(q_sa).item()
 
-    def update_target_newtwork(self):
+    def update_target_network(self):
 
         self.target_dqn.load_state_dict(self.dqn.state_dict())
 

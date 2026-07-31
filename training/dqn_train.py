@@ -4,6 +4,8 @@ from src.DeepQNetwork.dqn.Agent import Agent
 from tqdm import tqdm
 import gymnasium as gym
 import yaml
+from utils.game_plot import record_game
+from utils.training_curve_plot import plot_training_curves
 
 with open("configs/dqn_config.yaml", "r") as f:
 
@@ -76,6 +78,10 @@ def trainer(config):
     return agent,log
    
 if __name__ == "__main__":
+
     agent, log = trainer(config)
+    #env =  gym.make(config["environment"]["name"],render_mode=config["environment"]["render_mode"])
+    #record_game(env,agent,prefix ="dqn_agent",video_dir ="savevideos",seed=42)
+    plot_training_curves(log)
 
 

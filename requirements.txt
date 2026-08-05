@@ -7,3 +7,4 @@ matplotlib>=3.8
 tqdm>=4.66
 tensorboard>=2.15
 wandb==0.17.9
+ipython>=8.18

@@ -1,6 +1,7 @@
 from pathlib import Path
 import torch
 import gymnasium as gym
+from IPython.display import Video
 
 def record_game(
     env: gym.Env,

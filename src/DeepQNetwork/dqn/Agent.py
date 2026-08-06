@@ -92,7 +92,7 @@ class Agent:
 
         with torch.no_grad():
 
-            q_next_estimate = self.dqn(batch["next_states"])
+            q_next_estimate = self.target_dqn(batch["next_states"])
 
         max_q_estimate = torch.max(q_next_estimate,dim = -1).values
         td_target = batch["rewards"] + self.discount_factor * max_q_estimate * (~batch["terminals"])

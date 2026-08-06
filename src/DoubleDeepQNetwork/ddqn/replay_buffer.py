@@ -18,7 +18,7 @@ class ReplayBuffer:
 
     def update_memory(self,state,next_state,action,reward,terminal):
 
-        idx = self.memories_counter % self,self.max_memories
+        idx = self.memories_counter % self.max_memories
 
         self.state_mem[idx] = torch.tensor(state,dtype = self.state_mem.dtype)
         self.next_state_mem[idx] = torch.tensor(next_state,dtype = self.next_state_mem.dtype)

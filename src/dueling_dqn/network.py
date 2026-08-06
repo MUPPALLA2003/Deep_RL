@@ -1,0 +1,31 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class Network(nn.Module):
+
+    def __init__(self,num_state_features:int,intermediate_dims:int,num_actions:int) -> None:
+
+        super().__init__()
+
+        self.fc1 = nn.Linear(num_state_features,intermediate_dims)
+        self.fc2 = nn.Linear(intermediate_dims,intermediate_dims)
+        self.advantage_values = nn.Linear(intermediate_dims,num_actions)
+        self.state_value = nn.Linear(intermediate_dims,1)
+
+    def forward(self,x:torch.Tensor) -> torch.Tensor:
+
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        value = self.state_value(x)
+        advantage = self.advantage_values(x)
+        advantage_mean = advantage.mean(dim=-1,keepdim = True)
+        advantage = advantage - advantage_mean
+        q_value_estimate = value + advantage
+
+        return q_value_estimate
+
+
+        
+
+

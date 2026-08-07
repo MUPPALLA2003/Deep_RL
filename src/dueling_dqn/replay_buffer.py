@@ -17,8 +17,7 @@ class ReplayBuffer:
 
     def update_memory(self,state,next_state,action,reward,terminal):
 
-        total_memories = max(self.total_memories,self.memories_counter)
-        idx = total_memories % self.max_memories
+        idx = self.memories_counter % self.max_memories
 
         self.state_mem[idx] = torch.tensor(state,dtype = self.state_mem.dtype)
         self.next_state_mem[idx] = torch.tensor(next_state,dtype = self.next_state_mem.dtype)
@@ -32,13 +31,13 @@ class ReplayBuffer:
 
         assert batch < self.max_memories, "Batch size is more than the memories we can hold at once"
 
-        self.total_memories = min(self.memories_counter,self.max_memories)
+        total_memories = min(self.memories_counter,self.max_memories)
 
-        if self.total_memories < batch:
+        if total_memories < batch:
 
             return None
 
-        rand_idx = np.random.choice(np.arange(self.total_memories),size = batch,replace=False)
+        rand_idx = np.random.choice(np.arange(total_memories),size = batch,replace=False)
         rand_idx = torch.tensor(rand_idx,dtype = torch.long)
 
         batch = {

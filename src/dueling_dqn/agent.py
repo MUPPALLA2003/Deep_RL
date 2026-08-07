@@ -26,7 +26,7 @@ class Agent:
         self.target_dqn.eval()
         self.optimizer = optim.Adam(self.dqn.parameters(),lr = learning_rate)
         self.loss_fn = nn.MSELoss()
-        self.replay_buffer = ReplayBuffer(num_state_features,max_memories,device)
+        self.replay_buffer = ReplayBuffer(max_memories,num_state_features,device)
 
     def select_action(self,state):
 
@@ -79,7 +79,7 @@ class Agent:
 
     def train_step(self,batch_size:int):
 
-        batch = self.replay_buffer.access_memory(batch_size)
+        batch = self.replay_buffer.access_memories(batch_size)
 
         if batch is None:
 

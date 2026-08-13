@@ -6,7 +6,7 @@ import gymnasium as gym
 import yaml
 from utils.training_curve_plot import plot_training_curves
 
-with open("configs/dqn_config.yaml", "r") as f:
+with open("configs/dueling_dqn_config.yaml", "r") as f:
 
     config = yaml.safe_load(f)
 

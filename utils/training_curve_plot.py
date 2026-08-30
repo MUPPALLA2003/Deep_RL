@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import os
 
-def plot_training_curves(log,filename:str,save_dir:str="results_plot",grid:bool=True) -> None:
+def plot_training_curves(log,filename:str,save_dir:str="results_plot",save:bool=True,grid:bool=True) -> None:
 
     os.makedirs(save_dir,exist_ok=True)
 
@@ -16,11 +16,14 @@ def plot_training_curves(log,filename:str,save_dir:str="results_plot",grid:bool=
     )
 
     ax.legend()
-    ax.grid(True)
+    ax.grid(grid)
     fig.tight_layout()
 
     save_path = os.path.join(save_dir,filename)
-    fig.savefig(save_path, dpi=300, bbox_inches="tight")
+
+    if save:
+
+        fig.savefig(save_path,dpi=300,bbox_inches="tight")
 
     plt.show()
     plt.close(fig)

@@ -1,14 +1,26 @@
 import matplotlib.pyplot as plt
+import os
 
-def plot_training_curves(log):
+def plot_training_curves(log,filename:str,save_dir:str="results_plot",grid:bool=True) -> None:
 
-    plt.figure(figsize=(10, 5))
-    plt.plot(log["scores"], label="Scores")
-    plt.plot(log["running_avg_scores"], label="Moving Avg")
-    plt.title("Training Scores")
-    plt.xlabel("Episode")
-    plt.ylabel("Score")
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
+    os.makedirs(save_dir,exist_ok=True)
+
+    fig,ax = plt.subplots(figsize=(10, 5))
+    ax.plot(log["scores"],label="Scores")
+    ax.plot(log["running_avg_scores"],label="Moving Avg")
+
+    ax.set(
+        title="Training Scores",
+        xlabel="Episode",
+        ylabel="Score"
+    )
+
+    ax.legend()
+    ax.grid(True)
+    fig.tight_layout()
+
+    save_path = os.path.join(save_dir,filename)
+    fig.savefig(save_path, dpi=300, bbox_inches="tight")
+
     plt.show()
+    plt.close(fig)

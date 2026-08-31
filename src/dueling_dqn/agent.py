@@ -34,9 +34,9 @@ class Agent:
 
             state = torch.tensor(state,device = self.device)
 
-        if state.dim == 1:
+        if state.dim() == 1:
 
-            state.unsqueeze(0)
+            state = state.unsqueeze(0)
 
         assert state.shape[-1] == self.num_state_features, f"Passing {state.shape[-1]} features but expected {self.num_state_features}"    
 
@@ -62,10 +62,6 @@ class Agent:
         self.epsilon = max(self.min_epsilon,self.epsilon * self.epsilon_decay)
 
     def inference(self,state):
-
-        assert self.dqn.device == self.device
-
-        self.dqn()
 
         with torch.no_grad():
 

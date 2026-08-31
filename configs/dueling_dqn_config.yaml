@@ -21,3 +21,19 @@ train:
   min_epsilon : 0.05
   log_freq : 5 
   running_avg_steps : 25
+
+logging:
+
+  wandb_project : lunarlander-dqn
+  run_name : dueling_dqn
+  wandb_mode : online
+  wandb_enabled : true
+  profiler_log_dir : logs/profiler
+
+profiler:
+
+  wait : 1
+  warmup : 1
+  active : 3
+  repeat : 1
+  export_mode : "chrome"

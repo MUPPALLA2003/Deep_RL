@@ -1,0 +1,26 @@
+{
+  "os":  "Windows-10-10.0.26200-SP0",
+  "python":  "CPython 3.10.9",
+  "startedAt":  "2026-08-31T20:06:27.442173Z",
+  "program":  "-m training.dueling_dqn_train",
+  "git":  {
+    "remote":  "https://github.com/MUPPALLA2003/Deep_RL.git",
+    "commit":  "a2cfc519195aa8fb2b2cdb689483a34c8ff11bb8"
+  },
+  "email":  "muppallakomaliitkgp2022@gmail.com",
+  "root":  "E:\\Deep_RL",
+  "host":  "KOMAL",
+  "executable":  "E:\\Deep_RL\\.venv\\Scripts\\python.exe",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "disk":  {
+    "/":  {
+      "total":  "314571747328",
+      "used":  "83652304896"
+    }
+  },
+  "memory":  {
+    "total":  "14870372352"
+  },
+  "writerId":  "b6onan89gmynhg4yco8xm76ec64npp4p"
+}

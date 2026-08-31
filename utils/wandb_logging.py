@@ -57,6 +57,14 @@ class WandbLogger:
         artifact = wandb.Artifact(name=name,type="model")
         artifact.add_file(str(checkpoint_path))
         self.run.log_artifact(artifact)
+
+    def log_video(self,video_path:Union[str, Path],name:str = "gameplay",step:Optional[int] = None):
+
+        if not self.enabled:
+
+            return
+
+        wandb.log({name:wandb.Video(str(video_path),format="mp4")},step=step)    
  
     def finish(self):
  

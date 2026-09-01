@@ -1,0 +1,26 @@
+{
+  "os":  "Windows-10-10.0.26200-SP0",
+  "python":  "CPython 3.10.9",
+  "startedAt":  "2026-09-01T09:05:46.777177Z",
+  "program":  "-m training.d3qn_train",
+  "git":  {
+    "remote":  "https://github.com/MUPPALLA2003/Deep_RL.git",
+    "commit":  "cd382ef1db190233fb20daf261a8e97fdd450e92"
+  },
+  "email":  "muppallakomaliitkgp2022@gmail.com",
+  "root":  "E:\\Deep_RL",
+  "host":  "KOMAL",
+  "executable":  "E:\\Deep_RL\\.venv\\Scripts\\python.exe",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "disk":  {
+    "/":  {
+      "total":  "314571747328",
+      "used":  "83656208384"
+    }
+  },
+  "memory":  {
+    "total":  "14870372352"
+  },
+  "writerId":  "fw6ndb1kfdfjv7sogkhne2fk842r1v8v"
+}
